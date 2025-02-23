@@ -1,15 +1,16 @@
 package com.kafka.repository;
 
 import com.kafka.Notification;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
-public interface NotificationRepository {
+@Repository
+public interface NotificationRepository extends MongoRepository<Notification, String> {
     Optional<Notification> findById(String id);
 
     Notification save(Notification notification);
 
-    Notification deleteById(String id);
-
-
+    void deleteById(String id);
 }
