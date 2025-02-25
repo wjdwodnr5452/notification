@@ -2,8 +2,6 @@ spring:
   cloud:
     function:
       definition: comment; like; follow;
-      scan:
-        packages: com.kafka.consumer.event  # 함수형 빈이 정의된 패키지 지정
     stream:
       binder:
         brokers: localhost:9092
