@@ -1,8 +1,7 @@
 package com.kafka;
 
 public enum NotificationType {
-    LIke,
+    LIKE,
     COMMENT,
-    FOLLOW,
-
+    FOLLOW
 }

@@ -6,12 +6,14 @@ import com.kafka.NotificationType;
 import com.kafka.config.*;
 import com.kafka.consumer.event.CommentEvent;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
 
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.Objects;
 
+@ComponentScan(basePackages = "com.kafka")
 @Component
 public class CommentAddTask {
 
@@ -54,7 +56,8 @@ public class CommentAddTask {
                 now.plus(90, ChronoUnit.DAYS),
                 post.getId(),
                 comment.getUserId(),
-                comment.getContent()
+                comment.getContent(),
+                comment.getId()
         );
     }
 
