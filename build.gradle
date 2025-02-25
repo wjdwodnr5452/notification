@@ -57,7 +57,7 @@ subprojects {
 		testImplementation("org.springframework.boot:spring-boot-starter-test")
 	}
 
-	ext["springCloudVersion"] = "2024.0.0"
+
 
 	dependencyManagement {
 		imports{

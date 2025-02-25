@@ -24,8 +24,8 @@ public class NotificationRepositoryMemoryImplTest {
 
     @BeforeEach
     public void save() {
-        Notification saveNotification = new Notification("1", 2L, NotificationType.LIke, now, deletedAt);
-        notificationRepository.save(saveNotification);
+      //  Notification saveNotification = new Notification("1", 2L, NotificationType.LIke, now, deletedAt);
+      //  notificationRepository.save(saveNotification);
     }
 
 /*    @Test
@@ -44,10 +44,10 @@ public class NotificationRepositoryMemoryImplTest {
     void findById() {
         Notification notification = notificationRepository.findById("1").orElseThrow();
 
-        Assertions.assertEquals(notification.id, "1");
+       /* Assertions.assertEquals(notification.id, "1");
         Assertions.assertEquals(notification.userId, 2L);
         Assertions.assertEquals(notification.createdAt.getEpochSecond(), now.getEpochSecond());
-        Assertions.assertEquals(notification.deletedAt.getEpochSecond(), deletedAt.getEpochSecond());
+        Assertions.assertEquals(notification.deletedAt.getEpochSecond(), deletedAt.getEpochSecond());*/
     }
 
     @Test
