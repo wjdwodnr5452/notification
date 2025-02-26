@@ -1,6 +1,7 @@
 package com.kafka.consumer.api;
 
 import com.kafka.consumer.event.CommentEvent;
+import com.kafka.consumer.event.FollowEvent;
 import com.kafka.consumer.event.LikeEvent;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -43,6 +44,20 @@ public interface EventConsumerTestControllerSpec {
     )
     void like(LikeEvent event);
 
+    @Operation(
+            requestBody = @RequestBody(
+                    content = {
+                            @Content(
+                                    mediaType = MediaType.APPLICATION_JSON_VALUE,
+                                    examples = {
+                                            @ExampleObject(name = "팔로우 이벤트", value = Follow_EVENT_PAYLOAD)
+                                    }
+                            )
+                    }
+            )
+    )
+    void follow(FollowEvent event);
+
     String COMMENT_EVENT_PAYLOAD = """
             {
                 "type" : "ADD",
@@ -57,6 +72,16 @@ public interface EventConsumerTestControllerSpec {
                 "type" : "ADD",
                 "postId" : 1,
                 "userId" : 2,
+                "createdAt" : "2024-08-08T18:25:43.511Z"
+            }
+            """;
+
+
+    String Follow_EVENT_PAYLOAD = """
+            {
+                "type" : "ADD",
+                "userId" : 1,
+                "targetUserId" : 2,
                 "createdAt" : "2024-08-08T18:25:43.511Z"
             }
             """;
