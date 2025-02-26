@@ -1,6 +1,7 @@
 package com.kafka.consumer.api;
 
 import com.kafka.consumer.event.CommentEvent;
+import com.kafka.consumer.event.LikeEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,11 +15,19 @@ public class EventConsumerTestController implements EventConsumerTestControllerS
     @Autowired
     private Consumer<CommentEvent> comment;
 
+    @Autowired
+    private Consumer<LikeEvent> like;
 
     @Override
     @PostMapping("/test/comment")
     public void comment(@RequestBody CommentEvent event) {
         comment.accept(event);
+    }
+
+    @Override
+    @PostMapping("/test/like")
+    public void like(@RequestBody LikeEvent event) {
+        like.accept(event);
     }
 
 }

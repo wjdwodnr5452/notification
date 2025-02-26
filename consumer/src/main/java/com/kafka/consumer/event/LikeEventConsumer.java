@@ -1,6 +1,7 @@
 package com.kafka.consumer.event;
 
 import com.kafka.consumer.task.LikeAddTask;
+import com.kafka.consumer.task.LikeRemoveTask;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,11 +17,16 @@ public class LikeEventConsumer {
     @Autowired
     private LikeAddTask likeAddTask;
 
+    @Autowired
+    private LikeRemoveTask likeRemoveTask;
+
     @Bean("like")
     public Consumer<LikeEvent> like() {
         return event -> {
             if(event.getType() == LikeEventType.ADD){
                 likeAddTask.processEvent(event);
+            }else if(event.getType() == LikeEventType.REMOVE){
+                likeRemoveTask.processEvent(event);
             }
         };
     }

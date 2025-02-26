@@ -32,7 +32,7 @@ public class CommentRemoveTask {
             return;
         }
 
-      getService.getNotification(NotificationType.COMMENT, event.getCommentId()).ifPresentOrElse(
+      getService.getNotificationByTypeAndCommentId(NotificationType.COMMENT, event.getCommentId()).ifPresentOrElse(
               notification -> removeService.deleteById(notification.getId()), // 삭제한다.
                       () -> log.error("Notification not found")
       );

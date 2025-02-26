@@ -34,4 +34,11 @@ public class LikeNotification extends Notification {
         this.setLastUpdatedAt(now);
         this.setDeletedAt(retention);
     }
+
+    // 좋아요 삭제
+    public void removeLikers(Long userId, Instant now){
+        this.likerIds.remove(userId);
+        this.setLastUpdatedAt(now);
+    }
+
 }
