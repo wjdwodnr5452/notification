@@ -1,7 +1,7 @@
 package com.kafka.repository;
 
-import com.kafka.Notification;
-import com.kafka.NotificationType;
+import com.kafka.domain.Notification;
+import com.kafka.domain.NotificationType;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;

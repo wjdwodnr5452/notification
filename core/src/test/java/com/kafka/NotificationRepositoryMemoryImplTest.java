@@ -1,5 +1,6 @@
 package com.kafka;
 
+import com.kafka.domain.Notification;
 import com.kafka.repository.NotificationRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
